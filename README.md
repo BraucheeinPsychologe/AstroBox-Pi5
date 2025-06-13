@@ -1,90 +1,60 @@
-AstroBox Software
-=================
+# AstroBox Pi 5 Community Fork
 
-The AstroBox software provides a responsive web interface for controlling a 3D printer (RepRap, Ultimaker, ...) and connecting to the AstroPrint cloud for easy 3D Printing anywhere. It is Free Software and released under the [GNU Affero General Public License V3](http://www.gnu.org/licenses/agpl.html).
+**⚠️ This is an unofficial, community-maintained fork of AstroBox, created to support the Raspberry Pi 5. It is *not* affiliated with AstroPrint or its developers.**
 
-This project started as a fork of [OctoPrint](http://octoprint.org). Many thanks to Gina and all the great contributors there that made the AstroBox software possible.
+---
 
-Its website can be found at [astroprint.com](https://www.astroprint.com).
+## 📦 What is this?
 
-Reporting bugs
---------------
+This is a modified version of the official **AstroBox** image.  
+The goal is to bring basic **Raspberry Pi 5 compatibility** to AstroBox, since there is no official image for the Pi 5 yet.
 
-Our issue tracker can be found [on Github](https://github.com/astroprint/astrobox/issues).
+AstroPrint currently offers no support for this fork.  
+However, if you're stuck or need help – feel free to reach out to me!
+I'll do my best to help fellow makers.
 
+---
 
-Installation instructions
--------
+## ✅ Current Status
 
+| Feature             | Status         |
+|---------------------|----------------|
+| Raspberry Pi 5 Boot | ✅ Working     |
+| Basic AstroBox UI   | ✅ Working     |
+| Networking (WLAN)   | ✅ Working     |
+| Display Support     | ❌ Not yet – Touch version coming soon |
 
+Currently, this version supports the **regular AstroBox (headless)** only.  
+Support for **AstroBox Touch** is planned – contributions are very welcome!
 
-* Create an bootable image using the images from [AstroPrint](https://www.astroprint.com/downloads)
+---
 
-* Download the source code to get a working copy:
+## 🛠️ How does it work?
 
-  <pre>
-    git clone https://github.com/AstroPrint/AstroBox.git
-  </pre>
+The Raspberry Pi 5 uses a newer bootloader and kernel modules that aren't available in the original AstroBox image.  
+To make it work:
 
-Additional (to run from source):
--------
-### Ubuntu
+- I copied the required **boot files** and **kernel modules (/lib/modules)** from a working **Raspberry Pi OS (Bookworm)** image into the AstroBox image.
+- Some minor config changes were made (e.g. `config.txt`, `cmdline.txt`) to ensure Pi 5 compatibility.
 
-<pre>
-  sudo apt-get install rubygems oracle-java8-jdk
-</pre>
-  
-### Mac
+This method preserves the core functionality of AstroBox while unlocking Pi 5 support.
 
-<pre>
-  gem install rubygems-update
-</pre>
-  Download and install oracle-java8-jdk from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-### Ubuntu/Mac
-<pre>
-  $ sudo gem install sass 
-  $ sudo pip install -r requirements.txt
-</pre>
+---
 
-* You can run the box from source like this:
+## 🙌 Want to contribute?
 
-  <pre>
-    $ sudo service astrobox stop
-    $ sudo python ./run --config /etc/astrobox/config.yaml --host 127.0.0.1
-  </pre>
+Feel free to open a pull request or suggest improvements via issues.  
+Touchscreen support (especially for Waveshare displays) is on the roadmap – help is highly appreciated!
 
-Setting up the virtual printer
--------
+---
 
-The AstroBox Software comes with a handy virtual printer so that you can test without the need of a real 3D Printer attached. Here's how you can set it up
+## ⚠️ Disclaimer
 
-* Edit or create, the `printer-profile.yaml` file in your settings directory (by default `[AstroBox Directory]/local`). Change or add the line:
-<pre>
-  driver: virtual
-</pre>
+This is an **unofficial project** maintained by a community member.  
+AstroPrint and its team are **not** responsible for any issues, bugs, or magical smoke arising from this image.
 
-* Edit or create the `virtual-printer-settings.yaml` file in the same directory to guide your printing simulation. All values are in seconds. Here's a sample:
+Please don’t bother the AstroPrint support with problems related to this fork – instead, [open an issue here](#) or contact me.
 
-<pre>
-  connection: 3.0
-  heatingUp: 5.0
-  printJob: 10.0
-  promppt:
-    message: Your prompt message
-    choices:
-      - First choice
-      - Second choice
-</pre>
+---
 
-Setting up development network driver
---------
-
-If you'd like the astrobox not to automatically connect to a network do the following:
-
-* Edit or create, the `mac-dev-network.yaml` file in your settings directory (by default `[AstroBox Directory]/local`). Change or add the line:
-<pre>
-  autoConnect: False
-</pre>
-
-* Restart AstroBox any time you make changes to these files
-
+Thanks for checking out this project – and happy printing!
