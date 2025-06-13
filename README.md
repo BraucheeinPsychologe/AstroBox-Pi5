@@ -21,8 +21,8 @@ I'll do my best to help fellow makers.
 |---------------------|----------------|
 | Raspberry Pi 5 Boot | ✅ Working     |
 | Basic AstroBox UI   | ✅ Working     |
-| Networking (WLAN)   | ✅ Working     |
-| Display Support     | ❌ Not yet – Touch version coming soon |
+| Networking (WLAN)   | ⚠️ 90% Working |
+| Display Support     | ❌ Not yet     |
 
 Currently, this version supports the **regular AstroBox (headless)** only.  
 Support for **AstroBox Touch** is planned – contributions are very welcome!
@@ -38,6 +38,14 @@ To make it work:
 - Some minor config changes were made (e.g. `config.txt`, `cmdline.txt`) to ensure Pi 5 compatibility.
 
 This method preserves the core functionality of AstroBox while unlocking Pi 5 support.
+
+---
+
+## ⚠️ Known Issues
+
+- **Hotspot mode is not working**  
+  The AstroBox Hotspot (Access Point) fails to start properly on the Pi 5.  
+  However, **WiFi, USB, and Ethernet are working fine**, so connecting to your local network is still possible.
 
 ---
 
