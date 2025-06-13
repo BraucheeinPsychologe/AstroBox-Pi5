@@ -22,10 +22,7 @@ I'll do my best to help fellow makers.
 | Raspberry Pi 5 Boot | ✅ Working     |
 | Basic AstroBox UI   | ✅ Working     |
 | Networking (WLAN)   | ⚠️ 90% Working |
-| Display Support     | ❌ Not yet     |
-
-Currently, this version supports the **regular AstroBox (headless)** only.  
-Support for **AstroBox Touch** is planned – contributions are very welcome!
+| Display Support     | ✅ Working     |
 
 ---
 
